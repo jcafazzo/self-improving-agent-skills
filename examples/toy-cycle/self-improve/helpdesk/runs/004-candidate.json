@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "agent": "helpdesk",
+  "run": 4,
+  "target": "candidate",
+  "file": "candidate.md",
+  "file_sha256": "1d254d8c938ae05fca27d1d23602f0e66d8129e2aaeb8860909728843de83df9",
+  "live_version": "v003",
+  "recorded": "2026-11-24",
+  "answer_key_sha256": "b84110a972b477da2184965e3c8eada1c70049be936712d15b1d32ee4eead038",
+  "verifier_sha256": "3f0ac6c2922e7dec183634a2d8d79a066106a27753d24d4f662a7306479e2a93",
+  "results": [
+    {
+      "id": "c001",
+      "pass": true,
+      "reason": "Gives the live link, the Notion page Sales > Links, and says not to use the staging link.",
+      "answer": "Send the live checkout link, shop.fernhill.example/checkout, which is on the Notion page Sales > Links. Do not use the staging link on that page; staging orders are not charged or fulfilled.",
+      "set": "train"
+    },
+    {
+      "id": "c002",
+      "pass": false,
+      "reason": "Does not give the 30-day window from delivery for standard items; only the custom-order rule is stated.",
+      "answer": "My instructions only cover custom-printed orders: they are not refundable, except a misprint reported within 14 days of delivery. They do not give the refund window for standard items, so check with whoever handles refunds.",
+      "set": "train"
+    },
+    {
+      "id": "c003",
+      "pass": true,
+      "reason": "Has all four items: 10% without approval, Dana above 10%, #discounts, 25% cap.",
+      "answer": "Any sales rep can apply up to 10%. Anything above 10% needs approval from Dana, Head of Sales; ask in #discounts. No discount can go above 25%.",
+      "set": "train"
+    },
+    {
+      "id": "c004",
+      "pass": true,
+      "reason": "Forwards to wholesale@fernhill.example and says not to quote prices.",
+      "answer": "Forward it to wholesale@fernhill.example and do not quote wholesale prices; the wholesale team sets them case by case.",
+      "set": "train"
+    },
+    {
+      "id": "c005",
+      "pass": true,
+      "reason": "States custom-printed orders are not refundable, the misprint exception, and the 14-day limit from delivery.",
+      "answer": "No. Custom-printed orders are not refundable. The one exception is a misprint reported within 14 days of delivery, which we reprint or refund.",
+      "set": "train"
+    },
+    {
+      "id": "c006",
+      "pass": true,
+      "reason": "States 2pm, weekdays only, and next business day for later orders.",
+      "answer": "Before 2pm UK time, Monday to Friday. Later orders ship the next business day.",
+      "set": "train"
+    },
+    {
+      "id": "c007",
+      "pass": true,
+      "reason": "Says Monday and gives the missed 2pm cutoff as the reason.",
+      "answer": "Monday. It came in after the 2pm cutoff, so it ships the next business day, which after a Friday is Monday.",
+      "set": "holdout"
+    },
+    {
+      "id": "c008",
+      "pass": true,
+      "reason": "Says to open a ticket in #it-help rather than message Sam directly.",
+      "answer": "No. Open a ticket in #it-help; tickets reach whoever is on call, and a direct message can sit unread.",
+      "set": "holdout"
+    }
+  ],
+  "totals": {
+    "train": {
+      "passed": 5,
+      "total": 6
+    },
+    "holdout": {
+      "passed": 2,
+      "total": 2
+    },
+    "all": {
+      "passed": 7,
+      "total": 8
+    }
+  }
+}

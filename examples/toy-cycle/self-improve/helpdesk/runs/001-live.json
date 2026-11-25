@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "agent": "helpdesk",
+  "run": 1,
+  "target": "live",
+  "file": "agent.md",
+  "file_sha256": "f89b135c66a39b62deb0d10a02501ea05c9e66f07cda75d8e30d08e2a33366b7",
+  "live_version": "v002",
+  "recorded": "2026-11-24",
+  "answer_key_sha256": "b84110a972b477da2184965e3c8eada1c70049be936712d15b1d32ee4eead038",
+  "verifier_sha256": "3f0ac6c2922e7dec183634a2d8d79a066106a27753d24d4f662a7306479e2a93",
+  "results": [
+    {
+      "id": "c001",
+      "pass": true,
+      "reason": "Gives the live link, the Notion page Sales > Links, and says not to use the staging link.",
+      "answer": "Send the live checkout link: shop.fernhill.example/checkout. It is on the Notion page Sales > Links. Do not send the staging link on that page; orders through it are not charged or fulfilled.",
+      "set": "train"
+    },
+    {
+      "id": "c002",
+      "pass": true,
+      "reason": "States 30 days, counted from delivery.",
+      "answer": "Standard items can be refunded within 30 days from delivery.",
+      "set": "train"
+    },
+    {
+      "id": "c003",
+      "pass": false,
+      "reason": "Honestly says it is not covered, but the key has an answer: missing the 10% threshold, Dana's approval above 10%, the #discounts channel and the 25% cap.",
+      "answer": "My instructions do not cover who approves discounts. Your sales lead is the most likely person to know. I cannot apply discounts myself.",
+      "set": "train"
+    },
+    {
+      "id": "c004",
+      "pass": true,
+      "reason": "Forwards to wholesale@fernhill.example and says not to quote prices.",
+      "answer": "Forward the email to wholesale@fernhill.example and do not quote wholesale prices yourself; the wholesale team sets them case by case.",
+      "set": "train"
+    },
+    {
+      "id": "c005",
+      "pass": false,
+      "reason": "Does not say custom-printed orders are not refundable, and has no misprint exception or 14-day limit.",
+      "answer": "Standard items can be refunded within 30 days of delivery, but my instructions do not say whether custom-printed items count as standard. Check with whoever handles refunds before promising anything.",
+      "set": "train"
+    },
+    {
+      "id": "c006",
+      "pass": true,
+      "reason": "States 2pm, weekdays only, and next business day for later orders.",
+      "answer": "Orders need to be in before 2pm UK time, Monday to Friday. Anything later ships the next business day.",
+      "set": "train"
+    },
+    {
+      "id": "c007",
+      "pass": true,
+      "reason": "Says Monday and explains the 2pm cutoff was missed.",
+      "answer": "It will ship on Monday. Orders after 2pm ship the next business day, and the next business day after Friday is Monday.",
+      "set": "holdout"
+    },
+    {
+      "id": "c008",
+      "pass": true,
+      "reason": "Says to open a ticket in #it-help rather than message Sam directly.",
+      "answer": "No, open a ticket in #it-help instead. Tickets are seen by whoever is on call, while a direct message can sit unread.",
+      "set": "holdout"
+    }
+  ],
+  "totals": {
+    "train": {
+      "passed": 4,
+      "total": 6
+    },
+    "holdout": {
+      "passed": 2,
+      "total": 2
+    },
+    "all": {
+      "passed": 6,
+      "total": 8
+    }
+  }
+}

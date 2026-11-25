@@ -1,0 +1,7 @@
+{
+  "agent": "helpdesk",
+  "level": 2,
+  "max_iterations": 10,
+  "min_cases": 5,
+  "promotion_rule": "higher total and no regressions"
+}

@@ -1,0 +1,32 @@
+$ T=$(mktemp -d) && cd "$T"
+
+$ python3 path/to/scripts/sia.py init support-bot
+created self-improve/support-bot with: agent.md, answer-key.md, verifier.md, coach.md, config.json, PERMISSIONS.md, versions/LOG.md, versions/v001.md, runs/
+next: fill in agent.md and answer-key.md, then run: sia.py validate support-bot
+[exit 0]
+
+$ python3 path/to/scripts/sia.py validate
+[self-improve/support-bot]
+OK     all 8 files and runs/ present
+OK     config.json: level 2 (system proposes, human approves)
+WARN   answer key not yet filled in: 0 cases, minimum is 5
+WARN   agent.md: 9 [[...]] placeholders not yet filled in
+OK     versions/LOG.md: 1 entries
+support-bot: 0 errors, 2 warnings
+[exit 0]
+
+$ python3 path/to/scripts/sia.py init support-bot
+refused: will not overwrite existing files in self-improve/support-bot: agent.md, answer-key.md, verifier.md, coach.md, config.json, PERMISSIONS.md, versions/LOG.md, versions/v001.md, runs
+[exit 1]
+
+$ find . -type f | sort
+./self-improve/support-bot/PERMISSIONS.md
+./self-improve/support-bot/agent.md
+./self-improve/support-bot/answer-key.md
+./self-improve/support-bot/coach.md
+./self-improve/support-bot/config.json
+./self-improve/support-bot/runs/.gitkeep
+./self-improve/support-bot/verifier.md
+./self-improve/support-bot/versions/LOG.md
+./self-improve/support-bot/versions/v001.md
+
